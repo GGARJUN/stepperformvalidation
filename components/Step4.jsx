@@ -10,19 +10,20 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
         defaultValues: {
             sleepHours: formData.sleepHours || "",
             wakeUpFeeling: formData.wakeUpFeeling || "",
-            sleepQuality: formData.sleepQuality || 5,
-            energyLevels: formData.energyLevels || 5,
+            sleepQuality: formData.sleepQuality || 0, // Changed initial value to 0
+            energyLevels: formData.energyLevels || 0, // Changed initial value to 0
         },
     });
 
     // State to track slider values for fill effect
-    const [sleepQualityValue, setSleepQualityValue] = useState(formData.sleepQuality || 5);
-    const [energyLevelsValue, setEnergyLevelsValue] = useState(formData.energyLevels || 5);
+    const [sleepQualityValue, setSleepQualityValue] = useState(formData.sleepQuality || 0); // Changed initial value to 0
+    const [energyLevelsValue, setEnergyLevelsValue] = useState(formData.energyLevels || 0); // Changed initial value to 0
 
     const onSubmit = (data) => {
         setFormData({ ...formData, ...data });
         nextStep();
     };
+
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <h2 className="text-2xl font-bold text-white">Sleep Assessment</h2>
@@ -90,13 +91,13 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
             {/* Sleep Quality Slider */}
             <div className="mb-6">
                 <label className="block text-sm font-medium text-white mb-2">
-                    On a scale of 1-10 how would you rate the quality of your sleep?{" "}
+                    On a scale of 0-10 how would you rate the quality of your sleep?{" "}
                     <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                     <input
                         type="range"
-                        min="1"
+                        min="0" // Changed min to 0
                         max="10"
                         step="1"
                         {...register("sleepQuality", {
@@ -112,8 +113,11 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
                     />
                 </div>
                 <div className="flex justify-between text-gray-400 text-xs mt-2">
-                    {[...Array(10)].map((_, i) => (
-                        <div key={i + 1} className="flex flex-col items-center gap-2"><span className="border h-2"></span>{i + 1}</div>
+                    {[...Array(11)].map((_, i) => (
+                        <div key={i} className="ml-[6px] flex flex-col items-center gap-2">
+                            <span className="border h-2"></span>
+                            {i}
+                        </div>
                     ))}
                 </div>
                 <div className="flex items-center justify-between mt-2">
@@ -134,7 +138,7 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
                 <div className="relative">
                     <input
                         type="range"
-                        min="1"
+                        min="0" // Changed min to 0
                         max="10"
                         step="1"
                         {...register("energyLevels", {
@@ -150,8 +154,11 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
                     />
                 </div>
                 <div className="flex justify-between text-gray-400 text-xs mt-2">
-                    {[...Array(10)].map((_, i) => (
-                        <div key={i + 1} className="flex flex-col items-center gap-2"><span className="border h-2"></span>{i + 1}</div>
+                    {[...Array(11)].map((_, i) => (
+                        <div key={i} className="ml-[6px] flex flex-col items-center gap-2">
+                            <span className="border h-2"></span>
+                            {i}
+                        </div>
                     ))}
                 </div>
                 <div className="flex items-center justify-between mt-2">

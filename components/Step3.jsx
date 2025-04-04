@@ -52,7 +52,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
                 value={exercise}
                 {...register("comfortableExercises", {
                   validate: (value) =>
-                    value.length > 0 || "Please select at least one option",
+                    value.length > 0 || "Please select at least one option", // Already required, no change needed
                 })}
                 className="mr-2 h-5 w-5 text-[#EF4123] border-gray-600 bg-[#1a1a1a] rounded focus:ring-[#EF4123] focus:ring-2"
               />
@@ -86,7 +86,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
                 type="radio"
                 value={option}
                 {...register("trainingConsistency", {
-                  required: "Please select an option",
+                  required: "Please select an option", // Already required, no change needed
                 })}
                 className="mr-2 h-5 w-5 text-[#EF4123] border-gray-600 bg-[#1a1a1a] focus:ring-[#EF4123] focus:ring-2"
               />
@@ -115,7 +115,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
                   type="radio"
                   value={option}
                   {...register("trainingDuration", {
-                    required: "Please select an option",
+                    required: "Please select an option", // Already required, no change needed
                   })}
                   className="mr-2 h-5 w-5 text-[#EF4123] border-gray-600 bg-[#1a1a1a] focus:ring-[#EF4123] focus:ring-2"
                 />
@@ -144,7 +144,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
                 type="radio"
                 value={option}
                 {...register("trainingFrequency", {
-                  required: "Please select an option",
+                  required: "Please select an option", // Already required, no change needed
                 })}
                 className="mr-2 h-5 w-5 text-[#EF4123] border-gray-600 bg-[#1a1a1a] focus:ring-[#EF4123] focus:ring-2"
               />
@@ -185,7 +185,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
                 value={equipment}
                 {...register("availableEquipment", {
                   validate: (value) =>
-                    value.length > 0 || "Please select at least one option",
+                    value.length > 0 || "Please select at least one option", // Already required, no change needed
                 })}
                 className="mr-2 h-5 w-5 text-[#EF4123] border-gray-600 bg-[#1a1a1a] rounded focus:ring-[#EF4123] focus:ring-2"
               />
@@ -204,40 +204,69 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
       <div>
         <label className="block text-sm font-medium text-white mb-2">
           Please provide details of the equipment you have available (weight,
-          resistance, etc.)
+          resistance, etc.) <span className="text-red-500">*</span>
         </label>
         <textarea
-          {...register("equipmentDetails")}
-          className="w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20"
+          {...register("equipmentDetails", {
+            required: "This field is required", // Added required validation
+          })}
+          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
+            errors.equipmentDetails ? "border-red-500" : ""
+          }`}
           rows="3"
           placeholder="Please provide details of the equipment you have available (weight, resistance, etc.)"
         />
+        {errors.equipmentDetails && (
+          <p className="text-red-500 text-xs mt-1">
+            {errors.equipmentDetails.message}
+          </p>
+        )}
       </div>
 
       {/* Exercises to Include */}
       <div>
         <label className="block text-sm font-medium text-white mb-2">
-          Are there any exercises that you would like to include in the program?
+          Are there any exercises that you would like to include in the program?{" "}
+          <span className="text-red-500">*</span>
         </label>
         <textarea
-          {...register("exercisesToInclude")}
-          className="w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20"
+          {...register("exercisesToInclude", {
+            required: "This field is required", // Added required validation
+          })}
+          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
+            errors.exercisesToInclude ? "border-red-500" : ""
+          }`}
           rows="3"
           placeholder="Are there any exercises that you would like to include in the program?"
         />
+        {errors.exercisesToInclude && (
+          <p className="text-red-500 text-xs mt-1">
+            {errors.exercisesToInclude.message}
+          </p>
+        )}
       </div>
 
       {/* Exercises to Avoid */}
       <div>
         <label className="block text-sm font-medium text-white mb-2">
-          Any exercises you would like to avoid?
+          Any exercises you would like to avoid?{" "}
+          <span className="text-red-500">*</span>
         </label>
         <textarea
-          {...register("exercisesToAvoid")}
-          className="w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20"
+          {...register("exercisesToAvoid", {
+            required: "This field is required", // Added required validation
+          })}
+          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
+            errors.exercisesToAvoid ? "border-red-500" : ""
+          }`}
           rows="3"
           placeholder="Any exercises you would like to avoid?"
         />
+        {errors.exercisesToAvoid && (
+          <p className="text-red-500 text-xs mt-1">
+            {errors.exercisesToAvoid.message}
+          </p>
+        )}
       </div>
 
       {/* Buttons */}

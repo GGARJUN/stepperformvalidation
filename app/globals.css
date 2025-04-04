@@ -56,15 +56,32 @@ input,
 textarea {
   background-color: #1a1a1a; /* Dark background for inputs */
   color: #ffffff; /* White text for inputs */
-  border-color: #333333; /* Darker border for inputs */
+
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Prevent textarea resizing */
+textarea {
+  resize: none; /* Disables resizing of textarea */
 }
 
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #EF4123;
-  box-shadow: 0 0 0 3px rgba(239, 65, 35, 0.2);
+  border-color: red;
+
+}
+
+/* Remove number input arrows */
+input[type="number"] {
+  -webkit-appearance: none; /* Remove arrows in Chrome, Safari, Edge */
+  -moz-appearance: textfield; /* Remove arrows in Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Remove arrows in Chrome, Safari, Edge */
+  margin: 0; /* Remove any default margin */
 }
 
 button {
@@ -79,21 +96,19 @@ button:active {
   transform: translateY(0);
 }
 
-/* Custom Slider Styling */
+
 .custom-slider {
-  background: #4b5563; /* Tailwind's gray-600 */
-  border-radius: 9999px; /* Fully rounded */
-  height: 4px; /* Thin track */
+  background: #4b5563;
+  border-radius: 9999px;
+  height: 4px;
 }
 
-/* Track styling for Webkit browsers (Chrome, Safari) */
 .custom-slider::-webkit-slider-runnable-track {
   background: #4b5563;
   height: 4px;
   border-radius: 9999px;
 }
 
-/* Thumb styling for Webkit browsers */
 .custom-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -102,10 +117,9 @@ button:active {
   background: #EF4123;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: -6px; /* Center the thumb on the track */
+  margin-top: -6px;
 }
 
-/* Fill effect for Webkit browsers */
 .custom-slider::-webkit-slider-runnable-track {
   background: linear-gradient(
     to right,
@@ -116,7 +130,6 @@ button:active {
   );
 }
 
-/* Thumb styling for Firefox */
 .custom-slider::-moz-range-thumb {
   width: 16px;
   height: 16px;
@@ -126,26 +139,22 @@ button:active {
   cursor: pointer;
 }
 
-/* Track styling for Firefox */
 .custom-slider::-moz-range-track {
   background: #4b5563;
   height: 4px;
   border-radius: 9999px;
 }
 
-/* Fill effect for Firefox */
 .custom-slider::-moz-range-progress {
   background: #EF4123;
   height: 4px;
   border-radius: 9999px;
 }
 
-/* Dynamic fill calculation */
+/* Updated fill calculation for 0-10 range */
 .custom-slider {
-  --slider-fill: calc((var(--value) - 1) / 9 * 100%);
+  --slider-fill: calc(var(--value) / 10 * 100%);
 }
-
-
 
 /* ==================== */
 /* CHECKBOX STYLES */

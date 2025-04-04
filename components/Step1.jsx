@@ -42,9 +42,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           <input
             type="text"
             {...register("firstName", { required: "First Name is required" })}
-            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.firstName ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.firstName ? "border-red-500" : ""
+              }`}
             placeholder="First Name"
           />
           {errors.firstName && (
@@ -58,9 +57,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           <input
             type="text"
             {...register("lastName", { required: "Last Name is required" })}
-            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.lastName ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.lastName ? "border-red-500" : ""
+              }`}
             placeholder="Last Name"
           />
           {errors.lastName && (
@@ -83,9 +81,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
               message: "Invalid email address",
             },
           })}
-          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-            errors.email ? "border-red-500" : ""
-          }`}
+          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.email ? "border-red-500" : ""
+            }`}
           placeholder="Email"
         />
         {errors.email && (
@@ -133,9 +130,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           </label>
           <select
             {...register("country", { required: "Country is required" })}
-            className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.country ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.country ? "border-red-500" : ""
+              }`}
           >
             <option value="" disabled>
               Please choose one option
@@ -156,9 +152,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           <input
             type="text"
             {...register("city", { required: "City is required" })}
-            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.city ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.city ? "border-red-500" : ""
+              }`}
             placeholder="City"
           />
           {errors.city && (
@@ -174,9 +169,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
         </label>
         <select
           {...register("occupation", { required: "Occupation is required" })}
-          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-            errors.occupation ? "border-red-500" : ""
-          }`}
+          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.occupation ? "border-red-500" : ""
+            }`}
         >
           <option value="" disabled>
             Please choose one option
@@ -198,9 +192,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
         <input
           type="date"
           {...register("dateOfBirth", { required: "Date of Birth is required" })}
-          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-            errors.dateOfBirth ? "border-red-500" : ""
-          }`}
+          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.dateOfBirth ? "border-red-500" : ""
+            }`}
         />
         {errors.dateOfBirth && (
           <p className="text-red-500 text-xs mt-1">{errors.dateOfBirth.message}</p>
@@ -216,9 +209,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           <input
             type="number"
             {...register("height", { required: "Height is required", min: { value: 1, message: "Height must be greater than 0" } })}
-            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.height ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.height ? "border-red-500" : ""
+              }`}
             placeholder="Height in CMS"
           />
           {errors.height && (
@@ -232,9 +224,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           <input
             type="number"
             {...register("weight", { required: "Weight is required", min: { value: 1, message: "Weight must be greater than 0" } })}
-            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-              errors.weight ? "border-red-500" : ""
-            }`}
+            className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.weight ? "border-red-500" : ""
+              }`}
             placeholder="Weight in KGS"
           />
           {errors.weight && (
@@ -246,14 +237,20 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
       {/* Social Media Handle */}
       <div>
         <label className="block text-sm font-medium text-white mb-1">
-          Social Media Handle
+          Social Media Handle <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
-          {...register("socialMediaHandle")}
-          className="w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20"
+          {...register("socialMediaHandle", {
+            required: "This field is required", // Added required validation
+          })}
+          className={`w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.socialMediaHandle ? "border-red-500" : ""
+            }`} // Added conditional styling for error state
           placeholder="This is optional. You can share with us relevant page links which you prefer."
         />
+        {errors.socialMediaHandle && (
+          <p className="text-red-500 text-xs mt-1">{errors.socialMediaHandle.message}</p>
+        )}
       </div>
 
       {/* Program Duration Preference */}
@@ -263,9 +260,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
         </label>
         <select
           {...register("programDuration", { required: "Program duration is required" })}
-          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${
-            errors.programDuration ? "border-red-500" : ""
-          }`}
+          className={`w-full p-3 bg-[#1a1a1a] text-gray-400 border border-gray-600 rounded-md focus:outline-none focus:border-[#EF4123] focus:ring-2 focus:ring-[#EF4123]/20 ${errors.programDuration ? "border-red-500" : ""
+            }`}
         >
           <option value="" disabled>
             Please choose one option
